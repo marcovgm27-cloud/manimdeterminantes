@@ -1,3 +1,9 @@
+/**
+ * @OnlyCurrentDoc
+ * La línea anterior limita los permisos: el script solo puede abrir
+ * y modificar ESTA hoja de cálculo, no las demás de su Google Drive.
+ */
+
 /* =====================================================================
  * Code.gs — Servidor de resultados en Google Apps Script
  * ---------------------------------------------------------------------
