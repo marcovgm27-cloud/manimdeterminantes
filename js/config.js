@@ -88,7 +88,7 @@ window.CONFIG = {
   /* ---------------- Conexión con Google Sheets ---------------- */
   envio: {
     // Pegue aquí la URL del Web App de Google Apps Script (termina en /exec).
-    urlAppsScript: "",
+    urlAppsScript: "https://script.google.com/macros/s/AKfycbxLMGLwEaZmLdS9AcCiVkO3dXVmA53GccgdVV_hpvELBD-Kipa5dbaEPHU68V66mtGC/exec",
     tiempoEsperaSegundos: 25,    // Tiempo máximo de espera de la respuesta del servidor
   },
 
