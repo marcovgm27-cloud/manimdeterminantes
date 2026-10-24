@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Panel docente</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="encabezado">
+    <div class="encabezado__contenido">
+      <div class="marca">
+        <span class="marca__icono" aria-hidden="true">∑</span>
+        <div>
+          <p class="marca__curso" data-campo="curso"></p>
+          <p class="marca__actividad">Panel docente</p>
+        </div>
+      </div>
+      <a class="boton boton--texto boton--pequeno" href="index.html">Ver actividad del estudiante</a>
+    </div>
+  </header>
+
+  <main class="principal principal--ancho panel">
+    <!-- 1. Acceso -->
+    <section class="tarjeta" aria-labelledby="t-acceso">
+      <h1 class="titulo" id="t-acceso">Resultados</h1>
+      <p class="texto-suave" style="margin-bottom:20px">Los datos se leen directamente de la hoja de Google Sheets conectada en <code>js/config.js</code>.</p>
+      <form class="acceso" id="form-acceso">
+        <div class="campo">
+          <label class="campo__etiqueta" for="clave">Clave docente</label>
+          <input class="campo__entrada" id="clave" type="password" autocomplete="current-password" placeholder="La CLAVE_DOCENTE definida en Code.gs">
+        </div>
+        <div class="acceso__botones">
+          <button class="boton boton--primario" type="submit" id="btn-cargar">Cargar resultados</button>
+          <button class="boton boton--secundario" type="button" id="btn-demo">Ver datos de ejemplo</button>
+        </div>
+      </form>
+      <div class="mensaje" id="estado-carga" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- 2. Resumen (se muestra al cargar datos) -->
+    <div id="zona-datos" class="panel" hidden>
+      <section class="tarjeta" aria-label="Filtros">
+        <div class="filtros">
+          <div class="campo">
+            <label class="campo__etiqueta" for="f-actividad">Actividad</label>
+            <select class="campo__entrada" id="f-actividad"></select>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="f-grupo">Grupo</label>
+            <select class="campo__entrada" id="f-grupo"></select>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="f-intentos">Intentos</label>
+            <select class="campo__entrada" id="f-intentos">
+              <option value="todos">Todos los intentos</option>
+              <option value="ultimo">Último intento por estudiante</option>
+              <option value="mejor">Mejor intento por estudiante</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="f-buscar">Buscar</label>
+            <input class="campo__entrada" id="f-buscar" type="search" placeholder="Nombre o carné">
+          </div>
+        </div>
+      </section>
+
+      <section class="indicadores" id="indicadores" aria-label="Indicadores"></section>
+
+      <div class="graficos">
+        <section class="tarjeta">
+          <h2 class="seccion-titulo">Distribución de notas</h2>
+          <p class="seccion-sub">Cantidad de intentos por rango de porcentaje. Las barras claras están bajo la nota de aprobación.</p>
+          <div id="g-distribucion"></div>
+        </section>
+        <section class="tarjeta">
+          <h2 class="seccion-titulo">Promedio por grupo</h2>
+          <p class="seccion-sub">Nota promedio de los intentos filtrados.</p>
+          <div id="g-grupos"></div>
+        </section>
+      </div>
+
+      <section class="tarjeta">
+        <h2 class="seccion-titulo">Rendimiento por pregunta</h2>
+        <p class="seccion-sub">Porcentaje de acierto de cada pregunta (puntaje obtenido / puntaje posible).</p>
+        <div id="g-preguntas"></div>
+      </section>
+
+      <section class="tarjeta">
+        <div class="panel__cabecera" style="margin-bottom:16px">
+          <div>
+            <h2 class="seccion-titulo">Intentos registrados</h2>
+            <p class="seccion-sub" id="tabla-sub" style="margin:0"></p>
+          </div>
+          <div class="panel__acciones">
+            <button class="boton boton--primario boton--pequeno" type="button" id="btn-csv">Descargar resultados</button>
+            <button class="boton boton--secundario boton--pequeno" type="button" id="btn-csv-detalle">Respuestas detalladas (CSV)</button>
+            <a class="boton boton--secundario boton--pequeno" id="btn-xlsx" target="_blank" rel="noopener" hidden>Descargar Excel (.xlsx)</a>
+            <a class="boton boton--texto boton--pequeno" id="btn-hoja" target="_blank" rel="noopener" hidden>Abrir Google Sheets</a>
+          </div>
+        </div>
+        <div class="tabla-contenedor">
+          <table class="tabla" id="tabla"></table>
+        </div>
+      </section>
+    </div>
+
+    <!-- 3. Banco de preguntas -->
+    <section class="tarjeta" aria-labelledby="t-banco">
+      <div class="panel__cabecera" style="margin-bottom:16px">
+        <div>
+          <h2 class="seccion-titulo" id="t-banco">Banco de preguntas</h2>
+          <p class="seccion-sub" style="margin:0">Revise cómo quedaron sus preguntas y si tienen errores. Solo usted debería ver esta sección.</p>
+        </div>
+        <div class="panel__acciones">
+          <button class="boton boton--secundario boton--pequeno" type="button" id="btn-ver-banco">Revisar banco</button>
+          <button class="boton boton--secundario boton--pequeno" type="button" id="btn-proteger">Generar banco protegido</button>
+        </div>
+      </div>
+      <div id="banco"></div>
+    </section>
+  </main>
+
+  <footer class="pie"><span data-campo="pie"></span></footer>
+
+  <script defer src="js/config.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/math-engine.js"></script>
+  <script defer src="js/question-types.js"></script>
+  <script defer src="js/resources.js"></script>
+  <script defer src="js/question-bank.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/charts.js"></script>
+  <script defer src="js/teacher.js"></script>
+</body>
+</html>

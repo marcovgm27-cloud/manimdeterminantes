@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Actividad interactiva de Matemática">
+  <title>Reto matemático</title>
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+
+  <!-- KaTeX: representación de fórmulas matemáticas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Encabezado: el texto se completa desde js/config.js -->
+  <header class="encabezado">
+    <div class="encabezado__contenido">
+      <div class="marca">
+        <span class="marca__icono" aria-hidden="true">∑</span>
+        <div>
+          <p class="marca__curso" data-campo="curso"></p>
+          <p class="marca__actividad" data-campo="actividad"></p>
+        </div>
+      </div>
+      <div class="encabezado__estado">
+        <span class="cronometro" id="cronometro" hidden></span>
+      </div>
+    </div>
+    <div class="progreso" id="progreso" hidden>
+      <div class="progreso__barra" id="progreso-barra" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progreso de la actividad"></div>
+    </div>
+  </header>
+
+  <!-- La aplicación dibuja aquí cada pantalla -->
+  <main class="principal" id="app" aria-live="polite">
+    <div class="tarjeta tarjeta--centrada">
+      <p class="texto-suave">Cargando actividad…</p>
+      <noscript><p>Esta actividad necesita JavaScript activado.</p></noscript>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <span data-campo="pie"></span>
+  </footer>
+
+  <!-- Orden de carga: configuración → utilidades → motor → tipos → banco → servidor → app -->
+  <script defer src="js/config.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/math-engine.js"></script>
+  <script defer src="js/question-types.js"></script>
+  <script defer src="js/resources.js"></script>
+  <script defer src="js/question-bank.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/app.js"></script>
+</body>
+</html>
