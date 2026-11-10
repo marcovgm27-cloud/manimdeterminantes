@@ -1,0 +1,184 @@
+[
+  {
+    "escena": "1 Portada",
+    "inicio_s": 0,
+    "dur_s": 2.38,
+    "motor": "espeak-ng",
+    "texto": "Resolvamos una ecuación logarítmica."
+  },
+  {
+    "escena": "1 Portada",
+    "inicio_s": 2.5,
+    "dur_s": 5.6,
+    "motor": "espeak-ng",
+    "texto": "Logaritmo en base dos de equis, más logaritmo en base dos de equis menos dos, igual a tres."
+  },
+  {
+    "escena": "1 Portada",
+    "inicio_s": 8.23,
+    "dur_s": 3.97,
+    "motor": "espeak-ng",
+    "texto": "Piense: ¿para qué valores de equis tiene sentido esta ecuación?"
+  },
+  {
+    "escena": "2 Repaso",
+    "inicio_s": 14.8,
+    "dur_s": 2.46,
+    "motor": "espeak-ng",
+    "texto": "Primero, repasemos tres propiedades."
+  },
+  {
+    "escena": "2 Repaso",
+    "inicio_s": 17.33,
+    "dur_s": 5.15,
+    "motor": "espeak-ng",
+    "texto": "Propiedad uno, existencia: el logaritmo de eme existe solo si eme es positivo."
+  },
+  {
+    "escena": "2 Repaso",
+    "inicio_s": 22.6,
+    "dur_s": 3.18,
+    "motor": "espeak-ng",
+    "texto": "Su gráfica en base dos vive solo a la derecha del cero."
+  },
+  {
+    "escena": "2 Repaso",
+    "inicio_s": 25.9,
+    "dur_s": 3.43,
+    "motor": "espeak-ng",
+    "texto": "Por eso, logaritmo en base dos de menos dos no existe."
+  },
+  {
+    "escena": "2 Repaso",
+    "inicio_s": 29.43,
+    "dur_s": 4.75,
+    "motor": "espeak-ng",
+    "texto": "Propiedad dos, producto: la suma de logaritmos es el logaritmo del producto."
+  },
+  {
+    "escena": "2 Repaso",
+    "inicio_s": 34.3,
+    "dur_s": 6.26,
+    "motor": "espeak-ng",
+    "texto": "Logaritmo en base dos de cuatro más el de dos: dos más uno, tres, que es logaritmo en base dos de ocho."
+  },
+  {
+    "escena": "2 Repaso",
+    "inicio_s": 40.67,
+    "dur_s": 6.37,
+    "motor": "espeak-ng",
+    "texto": "Propiedad tres, definición: logaritmo en base be de eme igual a ce, equivale a be a la ce igual a eme."
+  },
+  {
+    "escena": "2 Repaso",
+    "inicio_s": 47.17,
+    "dur_s": 4.56,
+    "motor": "espeak-ng",
+    "texto": "Así, logaritmo en base dos de ocho es tres, porque dos al cubo es ocho."
+  },
+  {
+    "escena": "3 Dominio",
+    "inicio_s": 52.33,
+    "dur_s": 4.82,
+    "motor": "espeak-ng",
+    "texto": "Por la propiedad uno, equis mayor que cero, y equis menos dos mayor que cero."
+  },
+  {
+    "escena": "3 Dominio",
+    "inicio_s": 57.27,
+    "dur_s": 2.89,
+    "motor": "espeak-ng",
+    "texto": "Ambas se cumplen si equis es mayor que dos."
+  },
+  {
+    "escena": "3 Dominio",
+    "inicio_s": 60.27,
+    "dur_s": 3.6,
+    "motor": "espeak-ng",
+    "texto": "En la recta: el intervalo abierto de dos a más infinito."
+  },
+  {
+    "escena": "4 Resolucion",
+    "inicio_s": 64.87,
+    "dur_s": 3.67,
+    "motor": "espeak-ng",
+    "texto": "Antes de resolver, prediga: ¿cuántas soluciones tendrá?"
+  },
+  {
+    "escena": "4 Resolucion",
+    "inicio_s": 71.03,
+    "dur_s": 3.24,
+    "motor": "espeak-ng",
+    "texto": "Paso uno, propiedad dos: logaritmo del producto."
+  },
+  {
+    "escena": "4 Resolucion",
+    "inicio_s": 74.4,
+    "dur_s": 4.14,
+    "motor": "espeak-ng",
+    "texto": "Paso dos, propiedad tres: el producto es dos al cubo, ocho."
+  },
+  {
+    "escena": "4 Resolucion",
+    "inicio_s": 78.67,
+    "dur_s": 5.05,
+    "motor": "espeak-ng",
+    "texto": "Paso tres: equis al cuadrado, menos dos equis, menos ocho, igual a cero."
+  },
+  {
+    "escena": "4 Resolucion",
+    "inicio_s": 83.83,
+    "dur_s": 5.28,
+    "motor": "espeak-ng",
+    "texto": "Paso cuatro: factorizamos. Candidatos: equis igual a cuatro, o menos dos."
+  },
+  {
+    "escena": "5 Validacion",
+    "inicio_s": 90.13,
+    "dur_s": 2.8,
+    "motor": "espeak-ng",
+    "texto": "Validemos con el dominio en la recta numérica."
+  },
+  {
+    "escena": "5 Validacion",
+    "inicio_s": 93.03,
+    "dur_s": 3.76,
+    "motor": "espeak-ng",
+    "texto": "Menos dos queda fuera: por la propiedad uno, se rechaza."
+  },
+  {
+    "escena": "5 Validacion",
+    "inicio_s": 96.9,
+    "dur_s": 2.17,
+    "motor": "espeak-ng",
+    "texto": "Cuatro está dentro: se acepta."
+  },
+  {
+    "escena": "6 Comprobacion",
+    "inicio_s": 100.37,
+    "dur_s": 2.43,
+    "motor": "espeak-ng",
+    "texto": "Comprobemos con equis igual a cuatro."
+  },
+  {
+    "escena": "6 Comprobacion",
+    "inicio_s": 102.93,
+    "dur_s": 5.02,
+    "motor": "espeak-ng",
+    "texto": "Logaritmo en base dos de cuatro más el de dos: dos más uno, tres. Se cumple."
+  },
+  {
+    "escena": "6 Comprobacion",
+    "inicio_s": 108.07,
+    "dur_s": 2.91,
+    "motor": "espeak-ng",
+    "texto": "El conjunto solución contiene solo al cuatro."
+  },
+  {
+    "escena": "6 Comprobacion",
+    "inicio_s": 111.97,
+    "dur_s": 3.66,
+    "motor": "espeak-ng",
+    "texto": "Recuerde: siempre valide sus soluciones con el dominio."
+  }
+]
